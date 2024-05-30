@@ -27,5 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm run build --if-present
+    - run: |
+        # The --if-present flag ensures that the build script is run only if it is defined in package.json
+        npm run build --if-present
     - run: npm test
